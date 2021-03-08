@@ -17,7 +17,7 @@ Vue.config.productionTip = false;
 Vue.use(Antd)
 Vue.use(VueStorage)
 
-console.log(process.env)
+console.log('当前环境：', process.env.VUE_APP_MODE)
 
 new Vue({
   router,
