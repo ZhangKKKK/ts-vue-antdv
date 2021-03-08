@@ -1,0 +1,41 @@
+@import "./transition.scss";
+
+/* Global scss */
+
+body {
+  height: 100%;
+}
+
+html {
+  height: 100%;
+}
+
+#app {
+  height: 100%;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+a,
+a:focus,
+a:hover {
+  color: inherit;
+  outline: none;
+  text-decoration: none;
+}
+
+div:focus {
+  outline: none;
+}
+
+.container {
+  height: calc(100% - 24px - 32px);
+  width: 100%;
+  background-color: #fff;
+  border-radius: 4px;
+  padding: 24px;
+}
