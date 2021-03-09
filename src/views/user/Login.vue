@@ -50,6 +50,8 @@
 import { Component, Vue } from 'vue-property-decorator'
 import { mobileReg, passwordReg } from '@/utils/pattern'
 import { IuserInfo } from '@/store/login-interface'
+import { UserModule } from '@/store/module/user'
+import { PeimessionMoudle } from '@/store/module/peimission'
 @Component
 export default class Login extends Vue {
   public loginBtn = false
@@ -101,10 +103,12 @@ export default class Login extends Vue {
         mobile: 'values.mobile'
       }
       // this.loginBtn = true
-      this.$store.dispatch('userModule/loginAction', loginParams).then(res => {
+      // this.$store.dispatch('userModule/loginAction', loginParams)
+      UserModule.loginAction(loginParams)
+      .then(res => {
         // this.loginBtn = false
         console.log(res)
-        this.setUserInfo(res.data)
+        this.setUserInfo((res as any).data)
       }).catch(error => {
         // this.loginBtn = false
         console.log(error)
@@ -121,8 +125,10 @@ export default class Login extends Vue {
     }
     console.log(userInfo, 'login success')
     Vue.ls.set('token', userInfo.token)
-    this.$store.commit('userModule/SET_INFO', userInfo)
-    this.$store.dispatch('GenerateRoutes', ['sale'])
+    UserModule.SET_INFO(userInfo)
+    // this.$store.commit('userModule/SET_INFO', userInfo)
+    PeimessionMoudle.GenerateRoutes(['sale'])
+    // this.$store.dispatch('GenerateRoutes', ['sale'])
     this.$router.push('/home')
   }
 }

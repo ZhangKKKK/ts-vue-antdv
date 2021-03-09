@@ -50,10 +50,10 @@ export default class HelloWorld extends Vue {
 
   // ------------  生命周期
   private created () {
-    console.log('created:', this.num)
+    // console.log('created:', this.num)
   }
   private mounted () {
-    (this.$refs.inputNumber as any).foucs()
+    // (this.$refs.inputNumber as any).foucs()
   }
 
   // -----------   方法 methods

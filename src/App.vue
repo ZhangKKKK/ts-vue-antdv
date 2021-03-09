@@ -6,11 +6,13 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
+import { PeimessionMoudle } from '@/store/module/peimission'
 
 @Component
 export default class App extends Vue {
   public created () {
-    this.$store.dispatch('GenerateRoutes', ['sale'])
+    PeimessionMoudle.GenerateRoutes(['sale'])
+    // this.$store.dispatch('GenerateRoutes', ['sale'])
   }
 }
 </script>

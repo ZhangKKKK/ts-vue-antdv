@@ -1,22 +1,19 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import userModule from './module/user'
-import peimission from './module/peimission'
+import { IUserState } from './module/user'
+import { IPeimessionState } from './module/peimission'
 import createPersistedState from 'vuex-persistedstate'
+import { ITodoState } from './module/todo'
 
 Vue.use(Vuex);
 
-export default new Vuex.Store({
-  state: {
-  },
-  mutations: {
-  },
-  actions: {
-  },
-  modules: {
-    peimission,
-    userModule
-  },
+interface IRootState {
+  user: IUserState,
+  peimession: IPeimessionState,
+  todo: ITodoState
+}
+
+export default new Vuex.Store<IRootState>({
   plugins: [createPersistedState({
     storage: window.sessionStorage
   })]

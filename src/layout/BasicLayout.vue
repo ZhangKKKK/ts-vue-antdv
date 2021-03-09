@@ -81,6 +81,8 @@ import RouteView from './RouteView'
 import Driver from 'driver.js';
 import 'driver.js/dist/driver.min.css';
 import { guides } from '@/store/guide'
+import { UserModule } from '@/store/module/user'
+import { PeimessionMoudle } from '@/store/module/peimission'
 
 export default {
   components: { RouteView },
@@ -97,10 +99,10 @@ export default {
   },
   computed: {
     menus () {
-      return this.$store.state.peimission.routes.filter(item => item.meta && item.meta.hidden === false)
+      return PeimessionMoudle.routes.filter(item => item.meta && item.meta.hidden === false)
     },
     username () {
-      return this.$store.state.userModule.userInfo.name
+      return UserModule.userInfo.name
     }
   },
   watch: {
@@ -158,7 +160,7 @@ export default {
         title: '提示',
         content: '真的要注销登录吗 ?',
         onOk () {
-          that.$store.dispatch('userModule/logoutAction').then((res) => {
+          UserModule.logoutAction().then((res) => {
             that.$router.replace('/user/login')
           }).catch(err => {
             console.log(err)

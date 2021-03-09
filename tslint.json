@@ -19,6 +19,7 @@
     "trailing-comma": [false, {"multiline": "always", "singleline": "never"}],
     "arrow-parens": [false, "ban-single-arg-parens"],
     "no-console": false,
-    "space-before-function-paren": true
+    "space-before-function-paren": true,
+    "Empty block": true
   }
 }
