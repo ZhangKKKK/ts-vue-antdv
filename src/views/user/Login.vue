@@ -102,17 +102,19 @@ export default class Login extends Vue {
         password: 'values.password',
         mobile: 'values.mobile'
       }
-      // this.loginBtn = true
-      // this.$store.dispatch('userModule/loginAction', loginParams)
-      UserModule.loginAction(loginParams)
-      .then(res => {
-        // this.loginBtn = false
-        console.log(res)
-        this.setUserInfo((res as any).data)
-      }).catch(error => {
-        // this.loginBtn = false
-        console.log(error)
-      })
+      if (!err) {
+        // this.loginBtn = true
+        // this.$store.dispatch('userModule/loginAction', loginParams)
+        UserModule.loginAction(loginParams)
+        .then(res => {
+          // this.loginBtn = false
+          console.log(res)
+          this.setUserInfo((res as any).data)
+        }).catch(error => {
+          // this.loginBtn = false
+          console.log(error)
+        })
+      }
     })
   }
 

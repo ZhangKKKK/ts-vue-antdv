@@ -22,7 +22,7 @@
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator'
 import {TodoModule} from '@/store/module/todo'
-import TodoModal from './components/TodoModal.vue'
+import TodoModal from './components/modal/index'
 @Component({
   components: { TodoModal }
 })
