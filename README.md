@@ -1,5 +1,7 @@
 # ts-vue-antdv
 
+ts+vue+antdv+tsx 实现的一个简单的前端中后台系统框架
+
 ## Project setup
 ```
 npm install
